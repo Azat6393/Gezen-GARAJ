@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.azatberdimyradov.gezengaraj.view.DashboardFragment"
+        android:label="Geze GARAJ"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_carBrandsFragment"
+            app:destination="@id/carBrandsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="carBrand"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="carModel"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="carYear"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/carBrandsFragment"
+        android:name="com.azatberdimyradov.gezengaraj.view.CarBrandsFragment"
+        android:label="Gezen GARAJ"
+        tools:layout="@layout/fragment_car_brands">
+        <action
+            android:id="@+id/action_carBrandsFragment_to_carModelsFragment"
+            app:destination="@id/carModelsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/carModelsFragment"
+        android:name="com.azatberdimyradov.gezengaraj.view.CarModelsFragment"
+        android:label="Gezen GARAJ"
+        tools:layout="@layout/fragment_car_models" >
+        <action
+            android:id="@+id/action_carModelsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="car"
+            app:argType="com.azatberdimyradov.gezengaraj.model.CarsBrand" />
+    </fragment>
+</navigation>
