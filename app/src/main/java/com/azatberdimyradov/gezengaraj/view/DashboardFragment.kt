@@ -37,8 +37,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     var worksString = ""
     private lateinit var workDialog: Dialog
 
-    val nameLiveData = MutableLiveData<String>()
-
     private val viewModel by lazy { ViewModelProvider(this).get(CarsViewModel::class.java) }
 
     private val args by navArgs<DashboardFragmentArgs>()
